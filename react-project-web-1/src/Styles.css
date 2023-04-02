@@ -56,15 +56,18 @@ body.dark{
     z-index: 100;  
 }
 .sidebar.close{
-    width: 88px;
+    width: 85px;
 }
 
+.sidebar.close .text{
+    opacity: 0;
+}
 /* ===== Reusable code - Here ===== */
 .sidebar li{
-    height: 50px;
-    list-style: none;
+    height: 51.5px;
+    list-style:none;
     display: flex;
-    align-items: center;
+    align-items:center;
     margin-top: 10px;
 }
 
@@ -72,6 +75,19 @@ body.dark{
 .sidebar .icon{
     min-width: 100px;
     border-radius: 6px;
+}
+
+.sidebar li .icon{
+    font-size: 20px;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li .icon,
+.sidebar li .text{
+    color: var(--text--color);
 }
 
 .sidebar .icon{
@@ -93,6 +109,10 @@ body.dark{
 .sidebar .text{
     font-size: 16px;
     font-weight: 500;
+    color: var(--text--color);
+    transition: var(--tran-03);
+    white-space:normal;
+    opacity: 1;
 }
 
 .sidebar .image{
@@ -110,54 +130,56 @@ header .image-text .header-text{
   flex-direction: column;
 }
 
-
-.sidebar.close .text{
-    opacity: 0;
-}
 /* =========================== */
 
 .sidebar header{
-    position: relative;
+    position:inherit;
 }
 
 .sidebar header .image-text{
-    display: flex;
-    align-items: center;
+    display:contents;
+    align-items:center;
 }
 .sidebar header .logo-text{
     display: flex;
     flex-direction: column;
 }
+
+/* ===== Menu ===== */
 header .image-text .name {
     margin-top: 2px;
     font-size: 18px;
     font-weight: 600;
+    margin-top: -300px;
+    display:contents;
 }
 
+/* ===== Web developer ===== */
 header .image-text .profession{
     font-size: 16px;
-    margin-top: -2px;
-    display:inline;
+    margin-top: -1px;
+    display:flex;
 }
 .header-text profession{
   margin-top: -2px;
 }
 
 .sidebar header .image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flow-root;
+    align-items:center;
+    justify-content:right;
+    margin-top: -340px;
 }
 
 .sidebar header .image img{
-    width: 40px;
+    width: 70px;
     border-radius: 6px;
 }
 
 .sidebar header .toggle{
     position: absolute;
-    top: -350%;
-    right: -25px;
+    top: -300px;
+    right: -135px;
     transform: translateY(-50%) rotate(180deg);
     height: 25px;
     width: 25px;
@@ -178,6 +200,10 @@ body.dark .sidebar header .toggle{
 
 .sidebar.close .toggle{
     transform: translateY(-50%) rotate(0deg);
+    right: 30px;
+    top: -260px;
+
+
 }
 
 .sidebar .menu{
@@ -212,7 +238,7 @@ body.dark .sidebar header .toggle{
     height: 100%;
     width: 100%;
     border-radius: 6px;
-    text-decoration: none;
+    text-decoration:none;
     transition: var(--tran-03);
 }
 
@@ -230,13 +256,23 @@ body.dark .sidebar li a:hover .text{
 
 .sidebar .menu-bar{
     height: calc(100% - 55px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display:inherit;
+    flex-direction:column;
+    justify-content:end;
     overflow-y: scroll;
 }
 .menu-bar::-webkit-scrollbar{
     display: none;
+}
+
+.menu-bar .mode{
+    background: var(--primary-color-light);
+    position: relative;
+    border-radius: 6px;
+}
+
+.menu-bar .mode i{
+    position: absolute;
 }
 .sidebar .menu-bar .mode{
     border-radius: 6px;
@@ -245,13 +281,23 @@ body.dark .sidebar li a:hover .text{
     transition: var(--tran-05);
 }
 
+.menu-bar .mode .toggle-switch{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 60px;
+    cursor: pointer;
+}
+
 .menu-bar .mode .sun-moon{
     height: 50px;
     width: 60px;
 }
 
 .mode .sun-moon i{
-    position: absolute;
+    position:absolute;
 }
 .mode .sun-moon i.sun{
     opacity: 0;
@@ -297,7 +343,7 @@ body.dark .mode .sun-moon i.moon{
 }
 
 body.dark .switch::before{
-    left: 20px;
+    left: 50px;
 }
 
 .home{
@@ -318,7 +364,7 @@ body.dark .switch::before{
 }
 
 .sidebar.close ~ .home{
-    left: 100px;
+    left: 50px;
     height: 100vh;
     width: calc(100% - 78px);
 }
